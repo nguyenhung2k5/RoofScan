@@ -1,0 +1,40 @@
+# Python bytecode & cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+
+# Model weights (GitHub rejects files > 100 MB)
+*.pth
+*.pt
+*.bin
+*.onnx
+best_model_weights.pth
+
+# Environments
+env/
+venv/
+.venv/
+ENV/
+
+# IDE & Editor settings
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS generated files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Internal guidelines & university documents (Case 2 clean repo)
+*.docx
+*.doc
+*.pdf
+logo_phenikaa.png
+
+# Output / logs
+logs/
+*.log

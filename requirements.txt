@@ -1,0 +1,10 @@
+# Danh mục thư viện Đồ án Liên ngành Nhóm 7 (K17 Phenikaa University)
+# Đề tài: Xây dựng ứng dụng hỗ trợ bóc tách và thống kê diện tích mái nhà từ ảnh UAV
+
+streamlit>=1.28.0
+torch>=2.0.0
+torchvision>=0.15.0
+numpy>=1.24.0
+opencv-python-headless>=4.8.0
+Pillow>=9.5.0
+pandas>=2.0.0
