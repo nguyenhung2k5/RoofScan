@@ -84,7 +84,7 @@
 ### 2. Cài Đặt Thư Viện
 ```bash
 # Clone dự án từ GitHub
-git clone https://github.com/<tai-khoan-cua-ban>/RoofScan-AI.git
+git clone https://github.com/nguyenhung2k5/RoofScan
 cd RoofScan-AI
 
 # Cài đặt các gói phụ thuộc
