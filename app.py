@@ -50,8 +50,7 @@ except ImportError as e:
 
 st.set_page_config(
     page_title="RoofScan AI | Bóc tách & Thống kê Diện tích Mái nhà UAV",
-    page_icon="🛰️",
-    layout="wide",
+        layout="wide",
     initial_sidebar_state="expanded"
 )
 
@@ -126,13 +125,12 @@ st.markdown("""
 with st.sidebar:
     st.markdown("""
     <div style="background: linear-gradient(135deg, #0d3b66 0%, #005086 100%); padding: 18px; border-radius: 12px; color: white; text-align: center; margin-bottom: 12px; box-shadow: 0 4px 12px rgba(13, 59, 102, 0.2);">
-        <div style="font-size: 32px; margin-bottom: 4px;">🛰️</div>
-        <h3 style="margin: 0; color: white; font-size: 19px; font-weight: 700; letter-spacing: 0.5px;">RoofScan AI</h3>
+                <h3 style="margin: 0; color: white; font-size: 19px; font-weight: 700; letter-spacing: 0.5px;">RoofScan AI</h3>
         <p style="margin: 4px 0 0 0; font-size: 11px; color: #cbd5e1; text-transform: uppercase; letter-spacing: 0.8px;">Hệ thống Trắc địa Mái nhà UAV</p>
     </div>
     """, unsafe_allow_html=True)
     
-    with st.expander("👥 Đội ngũ Phát triển Dự án", expanded=False):
+    with st.expander("Đội ngũ Phát triển Dự án", expanded=False):
         st.markdown("""
         * **Nguyễn Trọng Hùng** (Team Lead): Lõi AI Suy luận & Giao diện Dashboard
         * **Lê Sơn Hải**: Tiếp nhận & Tiền xử lý dữ liệu viễn thám
@@ -140,14 +138,14 @@ with st.sidebar:
         """)
 
     st.markdown("---")
-    st.markdown("#### ⚙️ Cấu hình Tham số Suy luận")
+    st.markdown("#### Cấu hình Tham số Suy luận")
 
     weights_file = "best_model_weights.pth"
     if not os.path.exists(weights_file):
-        st.warning("⚠️ Chưa tìm thấy tệp trọng số `best_model_weights.pth`.")
+        st.warning("Chưa tìm thấy tệp trọng số `best_model_weights.pth`.")
 
     threshold = st.slider(
-        "🎯 Ngưỡng phân loại (Threshold):",
+        "Ngưỡng phân loại (Threshold):",
         min_value=0.10,
         max_value=0.95,
         value=0.50,
@@ -156,7 +154,7 @@ with st.sidebar:
     )
 
     gsd_value = st.number_input(
-        "📐 Độ phân giải mặt đất GSD (m/pixel):",
+        "Độ phân giải mặt đất GSD (m/pixel):",
         min_value=0.01,
         max_value=2.0,
         value=0.30,
@@ -166,7 +164,7 @@ with st.sidebar:
     )
 
     min_pixel = st.slider(
-        "🧹 Lọc đốm nhiễu diện tích (Pixel):",
+        "Lọc đốm nhiễu diện tích (Pixel):",
         min_value=5,
         max_value=100,
         value=20,
@@ -175,14 +173,14 @@ with st.sidebar:
     )
 
     morph_op = st.selectbox(
-        "✨ Phép toán hình thái học (Morphology):",
+        "Phép toán hình thái học (Morphology):",
         options=["none", "close_open", "close", "open"],
         index=0,
         help="Làm mịn ranh giới mái nhà, lấp lỗ hổng hoặc tách các mái liền kề."
     )
 
     overlay_alpha = st.slider(
-        "🎨 Độ trong suốt lớp phủ (Alpha):",
+        "Độ trong suốt lớp phủ (Alpha):",
         min_value=0.10,
         max_value=0.90,
         value=0.45,
@@ -190,7 +188,7 @@ with st.sidebar:
     )
 
     st.markdown("---")
-    st.markdown("#### 🎨 Tùy biến Hiển thị & Thị giác")
+    st.markdown("#### Tùy biến Hiển thị & Thị giác")
 
     style_mode = st.selectbox(
         "Kiểu phủ ranh giới:",
@@ -206,19 +204,19 @@ with st.sidebar:
 
     color_choice = st.selectbox(
         "Bảng màu nhận diện mái:",
-        ["🔴 Đỏ tươi viễn thám", "🔵 Xanh Neon (Cyan)", "🟡 Vàng chanh nổi bật", "🟢 Xanh lục Emerald"],
+        ["Đỏ tươi viễn thám", "Xanh Neon (Cyan)", "Vàng chanh nổi bật", "Xanh lục Emerald"],
         index=0
     )
     color_map = {
-        "🔴 Đỏ tươi viễn thám": (255, 30, 30),
-        "🔵 Xanh Neon (Cyan)": (0, 220, 255),
-        "🟡 Vàng chanh nổi bật": (255, 220, 0),
-        "🟢 Xanh lục Emerald": (40, 220, 100)
+        "Đỏ tươi viễn thám": (255, 30, 30),
+        "Xanh Neon (Cyan)": (0, 220, 255),
+        "Vàng chanh nổi bật": (255, 220, 0),
+        "Xanh lục Emerald": (40, 220, 100)
     }
 
     col_box1, col_box2 = st.columns(2)
-    draw_boxes = col_box1.checkbox("📦 Bounding Box", value=True, help="Vẽ khung viền chữ nhật bao quanh từng tòa nhà")
-    draw_labels = col_box2.checkbox("🏷️ Đánh số (#ID)", value=True, help="Ghi nhãn mã số #01, #02... trực tiếp lên mái nhà")
+    draw_boxes = col_box1.checkbox("Bounding Box", value=True, help="Vẽ khung viền chữ nhật bao quanh từng tòa nhà")
+    draw_labels = col_box2.checkbox("Đánh số (#ID)", value=True, help="Ghi nhãn mã số #01, #02... trực tiếp lên mái nhà")
 
 
 # ==============================================================================
@@ -276,7 +274,7 @@ else:
         selected_sample = st.selectbox(
             "Chọn ảnh UAV mẫu trong kho 10 ảnh thử nghiệm:",
             sample_files,
-            format_func=lambda x: f"📷 {os.path.basename(x)}"
+            format_func=lambda x: os.path.basename(x)
         )
         if selected_sample:
             input_image = load_image(selected_sample)
@@ -289,7 +287,7 @@ with col_info:
         orig_w, orig_h = input_image.size
         st.info(f"**Thông tin ảnh đang chọn:**\n\n* Tên tệp: `{image_name}`\n* Kích thước: `{orig_w} x {orig_h} px`\n* Thiết bị phần cứng: `{device}`")
     else:
-        st.info("👈 Hãy chọn một ảnh mẫu hoặc tải ảnh UAV lên để chạy phân tích.")
+        st.info("Hãy chọn một ảnh mẫu hoặc tải ảnh UAV lên để chạy phân tích.")
 
 
 # ==============================================================================
@@ -302,23 +300,23 @@ if input_image is not None:
     btn_col1, btn_col2 = st.columns([1, 2])
     with btn_col1:
         btn_run = st.button(
-            "🚀 Bóc tách diện tích mái nhà",
+            "Bóc tách diện tích mái nhà",
             type="primary",
             use_container_width=True,
             help="Bấm nút để kích hoạt mạng AI bóc tách ranh giới và đo đạc diện tích"
         )
     with btn_col2:
-        st.caption("💡 *Bấm nút để kích hoạt mạng nơ-ron Deep Learning bóc tách ranh giới mái nhà.*")
+        st.caption("*Bấm nút để kích hoạt mạng nơ-ron Deep Learning bóc tách ranh giới mái nhà.*")
 
     run_key = f"has_run_{image_name}"
     if btn_run:
         st.session_state[run_key] = True
 
     if not st.session_state.get(run_key, False):
-        st.info("👆 Ảnh đã nạp thành công! Hãy cấu hình tham số suy luận ở thanh bên trái (nếu cần) rồi nhấn nút **'🚀 Bóc tách diện tích mái nhà'** ở trên để bắt đầu phân tích.")
+        st.info("Ảnh đã nạp thành công! Hãy cấu hình tham số suy luận ở thanh bên trái (nếu cần) rồi nhấn nút **'Bóc tách diện tích mái nhà'** ở trên để bắt đầu phân tích.")
         st.image(input_image, caption=f"Ảnh đầu vào đang chờ xử lý: {image_name}", use_container_width=True)
     else:
-        st.markdown('<div class="section-title">📊 Kết Quả Bóc Tách & Đo Đạc Trắc Địa</div>', unsafe_allow_html=True)
+        st.markdown('<div class="section-title">Kết Quả Bóc Tách & Đo Đạc Trắc Địa</div>', unsafe_allow_html=True)
 
         # 1. TIỀN XỬ LÝ (MODULE 1 - LÊ SƠN HẢI)
         with st.spinner("Module 1 (Lê Sơn Hải): Đang chuẩn hóa ảnh sang PyTorch Tensor ImageNet..."):
@@ -426,9 +424,9 @@ if input_image is not None:
         mask_display_img = mask_to_display_image(cleaned_mask)
 
         tab_vis1, tab_vis2, tab_vis3 = st.tabs([
-            "🖼️ Ảnh Phủ Ranh Giới (Overlay Blend)",
-            "🔍 So Sánh Đa Khung Hình (Kèm Ground Truth)",
-            "📈 Thống Kê Quy Hoạch & Bảng Chi Tiết"
+            "Ảnh Phủ Ranh Giới (Overlay Blend)",
+            "So Sánh Đa Khung Hình (Kèm Ground Truth)",
+            "Thống Kê Quy Hoạch & Bảng Chi Tiết"
         ])
 
         with tab_vis1:
@@ -460,7 +458,7 @@ if input_image is not None:
                     f1 = (2 * prec * rec / (prec + rec)) if (prec + rec) > 0 else 0.0
 
                     st.success(
-                        f"🎯 **Đối chiếu Ground Truth thực tế (WHU Test)**: "
+                        f"**Đối chiếu Ground Truth thực tế (WHU Test)**: "
                         f"**mIoU = {sample_iou:.2f}%** | "
                         f"**Precision = {prec:.2f}%** | "
                         f"**Recall = {rec:.2f}%** | "
@@ -482,7 +480,7 @@ if input_image is not None:
                     except Exception:
                         pass
             else:
-                st.info("ℹ️ Chế độ tải ảnh người dùng: Chưa có tệp nhãn Ground Truth tương ứng để tính toán mIoU/F1.")
+                st.info("Chế độ tải ảnh người dùng: Chưa có tệp nhãn Ground Truth tương ứng để tính toán mIoU/F1.")
                 c1, c2, c3 = st.columns(3)
                 with c1:
                     st.image(input_image, caption="1. Ảnh chụp UAV gốc", use_container_width=True)
@@ -497,7 +495,7 @@ if input_image is not None:
                 chart_col1, chart_col2 = st.columns([3, 2])
             
                 with chart_col1:
-                    st.markdown("##### 📊 Phân bố quy mô diện tích công trình")
+                    st.markdown("##### Phân bố quy mô diện tích công trình")
                     df_dist = get_size_distribution(spatial_results["buildings"])
                     try:
                         import altair as alt
@@ -542,7 +540,7 @@ if input_image is not None:
                         )
 
                 with chart_col2:
-                    st.markdown("##### 🏙️ Mật độ xây dựng mặt đất")
+                    st.markdown("##### Mật độ xây dựng mặt đất")
                     df_land, density_pct = get_land_use_metrics(
                         total_area, orig_size[0], orig_size[1], effective_gsd[0], effective_gsd[1]
                     )
@@ -555,7 +553,7 @@ if input_image is not None:
                     st.dataframe(df_land, hide_index=True, use_container_width=True)
 
                 st.markdown("---")
-                st.markdown("##### 📋 Danh sách chi tiết từng công trình")
+                st.markdown("##### Danh sách chi tiết từng công trình")
 
                 filter_col1, filter_col2 = st.columns([1, 1])
                 with filter_col1:
@@ -590,13 +588,13 @@ if input_image is not None:
                 st.warning("Chưa có công trình nào đạt ngưỡng diện tích tối thiểu.")
 
         # KHU VỰC TẢI VỀ BÁO CÁO (MODULE 4)
-        st.markdown('<div class="section-title">📥 Tải Về Kết Quả Báo Cáo Đo Đạc</div>', unsafe_allow_html=True)
+        st.markdown('<div class="section-title">Tải Về Kết Quả Báo Cáo Đo Đạc</div>', unsafe_allow_html=True)
         down_col1, down_col2, down_col3 = st.columns(3)
 
         with down_col1:
             mask_bytes = convert_image_to_bytes(mask_display_img, format="PNG")
             st.download_button(
-                label="💾 Tải Mặt Nạ Nhị Phân (PNG Mask)",
+                label="Tải Mặt Nạ Nhị Phân (PNG Mask)",
                 data=mask_bytes,
                 file_name=f"mask_{os.path.splitext(image_name)[0]}.png",
                 mime="image/png",
@@ -606,7 +604,7 @@ if input_image is not None:
         with down_col2:
             overlay_bytes = convert_image_to_bytes(overlay_img, format="PNG")
             st.download_button(
-                label="🖼️ Tải Ảnh Phủ Ranh Giới (Overlay PNG)",
+                label="Tải Ảnh Phủ Ranh Giới (Overlay PNG)",
                 data=overlay_bytes,
                 file_name=f"overlay_{os.path.splitext(image_name)[0]}.png",
                 mime="image/png",
@@ -617,18 +615,18 @@ if input_image is not None:
             if not df_buildings.empty:
                 csv_bytes = convert_dataframe_to_csv(df_buildings)
                 st.download_button(
-                    label="📊 Tải Báo Cáo Thống Kê (CSV Excel)",
+                    label="Tải Báo Cáo Thống Kê (CSV Excel)",
                     data=csv_bytes,
                     file_name=f"bao_cao_mai_nha_{os.path.splitext(image_name)[0]}.csv",
                     mime="text/csv",
                     use_container_width=True
                 )
             else:
-                st.button("📊 Tải Báo Cáo Thống Kê (CSV)", disabled=True, use_container_width=True)
+                st.button("Tải Báo Cáo Thống Kê (CSV)", disabled=True, use_container_width=True)
 
 else:
     # Trạng thái ban đầu (Empty State)
-    st.info("👋 Hãy chọn một ảnh mẫu bên trên hoặc tải ảnh UAV của bạn lên để xem kết quả phân đoạn học sâu tức thời.")
+    st.info("Hãy chọn một ảnh mẫu bên trên hoặc tải ảnh UAV của bạn lên để xem kết quả phân đoạn học sâu.")
 
 st.markdown("---")
 st.caption("© 2026 Nhóm Nghiên cứu & Phát triển — Hệ thống Bóc tách & Đo đạc Mái nhà UAV.")
